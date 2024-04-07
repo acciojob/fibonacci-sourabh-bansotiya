@@ -1,14 +1,15 @@
 function fibonacci(num) {
 // your code here
-	let sum = 0;
-	for (let i = 0; i < num.length; i++) {
-		for (let j = i; j < num.length; j++) {
-			if (num[i] + num[j] >= 0) {
-				sum = num[i] + num[j]
-			}
-		}
-	}
-	return sum;
+	if (num <= 0) return 0;
+    if (num === 1) return 0;
+    let prev = 0;
+    let curr = 1;
+    for (let i = 2; i < num; i++) {
+        let next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
 }
 
 module.exports = fibonacci;
